@@ -1,0 +1,13 @@
+form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-input {
+    min-width: 800px;
+    min-height: 50px;
+    margin: auto;
+}
