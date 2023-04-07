@@ -5,6 +5,10 @@ export function createNote(newNoteData) {
     return sendRequest(`${BASE_URL}`, 'POST', newNoteData);
 
 }
+export function editNote(editNoteData, noteId) {
+    return sendRequest(`${BASE_URL}/edit`, 'POST', editNoteData);
+
+}
 
 export async function getNotes(user) {
     console.log("GET NOTES IS RUNNING, USER:", user)

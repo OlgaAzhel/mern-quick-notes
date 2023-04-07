@@ -1,5 +1,5 @@
 import NoteListItem from "../NoteListItem/NoteListItem";
-export default function NoteList({ user, notes , setNotes}) {
+export default function NoteList({ user, notes , setNotes, getNotes}) {
     
     async function handleSort() {
         const newNotes = await notes.sort(function(a,b) {
@@ -23,6 +23,7 @@ export default function NoteList({ user, notes , setNotes}) {
             user={user}
             notes={notes}
             setNotes={setNotes}
+            getNotes={getNotes}
             // updateTodos={updateTodos}
             // removeToDo={removeToDo}
         />

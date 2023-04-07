@@ -16,6 +16,7 @@ const noteSchema = new Schema({
 })
 
 noteSchema.statics.getNote = function(noteId, newText) {
+    console.log("Find one and update method is runnung on backend", noteId, newText)
     return this.findOneAndUpdate(
         //filter:
         {_id:noteId},

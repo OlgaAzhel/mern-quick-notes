@@ -9,6 +9,7 @@ import NotesList from '../../components/NotesList/NoteList'
 
 
 
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [notes, setNotes] = useState([])
@@ -41,7 +42,7 @@ export default function App() {
           {notes.length>0 ?
           <>
           <h3>My Notes:</h3>
-          < NotesList notes={notes} user={user} setNotes={setNotes}/>
+              < NotesList notes={notes} user={user} setNotes={setNotes} getNotes={getNotes} />
           </>
           :
           <h3>No Notes Yet!</h3>

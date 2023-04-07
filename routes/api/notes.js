@@ -6,5 +6,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.post('/', ensureLoggedIn, notesCtrl.create);
 router.post('/show', ensureLoggedIn, notesCtrl.show);
 router.post('/delete', ensureLoggedIn, notesCtrl.delete);
+router.post('/edit', ensureLoggedIn, notesCtrl.edit);
 
 module.exports = router;

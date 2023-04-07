@@ -6,7 +6,7 @@ module.exports = {
     create,
     show,
     delete:deleteNote,
-    update
+    edit
 }
 
 function create(req, res) {
@@ -37,8 +37,8 @@ function deleteNote(req,res) {
     })
 }
 
-async function update(req,res) {
-    console.log("UPDATE NOTE IS RUNNING", req.body_id, req.body.text)
-    const note = await Note.getNote(req.body._id, req.body.text)
+async function edit(req,res) {
+    console.log("UPDATE NOTE IS RUNNING", req.body.id, req.body.text)
+    const note = await Note.getNote(req.body.id, req.body.text)
     res.json(note)
 }
