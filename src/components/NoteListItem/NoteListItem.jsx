@@ -1,7 +1,8 @@
 import * as notesAPI from '../../utilities/notes-api';
 import "./NoteListItem.css"
 
-export default function NoteListItem({ notes, note, index, setNotes }) {
+
+export default function NoteListItem({ notes, note, index, setNotes, user }) {
     const handleClick = async () => {
        const deleteComplete = await notesAPI.deleteNote(note);
        console.log("")
@@ -14,17 +15,22 @@ export default function NoteListItem({ notes, note, index, setNotes }) {
 
        }
     };
+    const handleEdit = async () => {
+        
+    }
+
     const date = new Date(note.createdAt)
-    const formattedDate = date.toLocaleDateString('en-us', {
-        timeZone: 'GMT', year: "numeric", month: "short",
-        day: "numeric"
-    })
+
+    const formattedDateTime = date.toLocaleString('en-US', {
+        timeZone: 'EST', year: "numeric", month: "short",
+        day: "numeric", hour: 'numeric', minute: 'numeric',hour12: true })
 
     return (
         <li className="NoteListItem">
             <div className="note-ctr">
             <span className='note-text'>{note.text}</span>
-            <span>{formattedDate}</span>
+            <span>{formattedDateTime}</span>
+            <button onClick={handleEdit}>EDIT NOTE</button>
             <button onClick={handleClick}>DELETE NOTE</button>
             </div>
         </li>

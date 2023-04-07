@@ -5,7 +5,8 @@ const Note = require('../../models/note')
 module.exports = {
     create,
     show,
-    delete:deleteNote
+    delete:deleteNote,
+    update
 }
 
 function create(req, res) {
@@ -34,4 +35,10 @@ function deleteNote(req,res) {
     Note.deleteOne({ _id: req.body._id }, function (err,note) {
         res.json(note)
     })
+}
+
+async function update(req,res) {
+    console.log("UPDATE NOTE IS RUNNING", req.body_id, req.body.text)
+    const note = await Note.getNote(req.body._id, req.body.text)
+    res.json(note)
 }

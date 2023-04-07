@@ -15,4 +15,15 @@ const noteSchema = new Schema({
     timestamps: true
 })
 
+noteSchema.statics.getNote = function(noteId, newText) {
+    return this.findOneAndUpdate(
+        //filter:
+        {_id:noteId},
+        // update:
+        {text: newText},
+        // to return updated document
+        {new: true}
+        )
+}
+
 module.exports = mongoose.model('Note', noteSchema);
